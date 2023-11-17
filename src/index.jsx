@@ -1,38 +1,64 @@
 import { render } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState, useRef } from "preact/hooks";
 import "./style.css";
 import { fetchPayload } from "./utils/fetchPayload";
 import { serialize } from "./utils/serialize";
+import Isotope from "isotope-layout";
 
 export function App() {
-  let [language, setLanguage] = useState("aboutEN");
-  let [output, setOutput] = useState([]);
+  const [language, setLanguage] = useState("aboutEN");
+  const [output, setOutput] = useState([]);
+  const [about, setAbout] = useState([]);
+  const [serializedAbout, setSerializedAbout] = useState("");
+  const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
-  let _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
   let _serializedAbout = "";
   // function to fetch data from API
-  let _about = fetchPayload(_baseURI, "StudioGraphicAbout")
-    .then((data) => {
-      _about = data;
-      // fetch array that needs to be serialized based on the language
-      let _unserializedAbout = data["docs"][0][language][0];
-      // serialize content to HTML :D
-      _serializedAbout = serialize(_unserializedAbout);
-      renderSerializedAbout();
-      renderTranslateTo(language);
-    })
-    .catch((e) => {
-      console.log(e);
+  //
+  useEffect(() => {
+    fetchPayload(_baseURI, "StudioGraphicAbout")
+      .then((data) => {
+        console.log(data);
+        setAbout(data);
+        let _unserializedAbout = data["docs"][0][language][0];
+        let _serializedAbout = serialize(_unserializedAbout);
+        renderTranslateTo(language);
+        const section = document.querySelector(".about");
+        section.innerHTML = _serializedAbout;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [language]);
+
+  useEffect(() => {
+    fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
+      console.log(data);
+      setOutput(data["docs"]);
     });
+  }, []);
 
-  let _output = fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
-    setOutput(data);
-  });
+  const gridRef = useRef(null);
+  const isotopeRef = useRef(null);
 
-  function renderSerializedAbout() {
-    const section = document.querySelector(".about");
-    section.innerHTML = _serializedAbout;
-  }
+  useEffect(() => {
+    if (gridRef.current) {
+      new Isotope(gridRef.current, {
+        itemSelector: ".grid-item",
+        layoutMode: "masonry",
+        masonry: {
+          gutter: 10,
+        },
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (gridRef.current) {
+      const iso = Isotope.data(gridRef.current);
+      iso.layout();
+    }
+  }, [output]);
 
   function renderTranslateTo(lang) {
     const translateTo = document.querySelector(".translateTo");
@@ -49,8 +75,6 @@ export function App() {
     }
   }
 
-  useEffect(() => {});
-
   return (
     <div>
       <header>
@@ -64,6 +88,13 @@ export function App() {
           </div>
         </p>
       </header>
+      <section className="grid" ref={gridRef}>
+        {output.map((o, index) => (
+          <a key={index}>
+            <img className={"grid-item"} src={o["mainMedia"]["url"]} />
+          </a>
+        ))}
+      </section>
     </div>
   );
 }
