@@ -1,18 +1,19 @@
 {
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview"
-	},
-	"dependencies": {
-		"escape-html": "^1.0.3",
-		"preact": "^10.13.1",
-		"slate": "^0.100.0"
-	},
-	"devDependencies": {
-		"@preact/preset-vite": "^2.5.0",
-		"vite": "^4.3.2"
-	}
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "preact": "^10.13.1",
+    "slate": "^0.100.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
+    "vite": "^4.3.2"
+  },
+  "proxy": "https://studio-grafisch-ontwerp-ym63.vercel.app/"
 }
