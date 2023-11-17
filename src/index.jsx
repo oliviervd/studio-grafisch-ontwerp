@@ -6,6 +6,7 @@ import { serialize } from "./utils/serialize";
 
 export function App() {
   let [language, setLanguage] = useState("aboutEN");
+  let [output, setOutput] = useState([]);
 
   let _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
   let _serializedAbout = "";
@@ -23,6 +24,10 @@ export function App() {
     .catch((e) => {
       console.log(e);
     });
+
+  let _output = fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
+    setOutput(data);
+  });
 
   function renderSerializedAbout() {
     const section = document.querySelector(".about");
@@ -43,6 +48,8 @@ export function App() {
         break;
     }
   }
+
+  useEffect(() => {});
 
   return (
     <div>
