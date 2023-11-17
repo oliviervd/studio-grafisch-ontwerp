@@ -1,82 +1,102 @@
-:root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-
-	color: #222;
-	background-color: #ffffff;
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+@font-face {
+  font-family: "Arial Rounded Bold";
+  src: url("../../pages/assets/Arial-Rounded-Bold.ttf"),
+    local("Arial Rounded Bold");
 }
 
 body {
-	margin: 0;
-	display: flex;
-	align-items: center;
-	min-height: 100vh;
+  max-width: 2500px;
+  margin: 27px 27px;
+  font-family: "Arial Rounded Bold";
+  font-size: 1.5rem; /* = 24px */
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-#app {
-	max-width: 1280px;
-	margin: 0 auto;
-	text-align: center;
+h3 {
+  font-size: 1.5rem;
 }
 
-img {
-	margin-bottom: 1.5rem;
+a {
+  text-decoration: underline;
+  color: rgb(42, 55, 162);
 }
 
-img:hover {
-	filter: drop-shadow(0 0 2em #673ab8aa);
+a:hover {
+  text-decoration: underline;
 }
 
-section {
-	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1.5rem;
+p {
+  background-color: white;
 }
 
-.resource {
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	text-align: left;
-	text-decoration: none;
-	color: #222;
-	background-color: #f1f1f1;
-	border: 1px solid transparent;
+a:active {
+  color: rgb(42, 55, 162);
 }
 
-.resource:hover {
-	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
+/*2500*/
+.grid::after {
+  clear: both;
 }
 
-@media (max-width: 639px) {
-	#app {
-		margin: 2rem;
-	}
-	section {
-		margin-top: 5rem;
-		grid-template-columns: 1fr;
-		row-gap: 1rem;
-	}
+.grid-item {
+  width: 300px;
+  box-shadow: 0 0 10px 0.5px #d3cfcf;
+  margin-bottom: 15px;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		color: #ccc;
-		background-color: #1a1a1a;
-	}
-	.resource {
-		color: #ccc;
-		background-color: #161616;
-	}
-	.resource:hover {
-		border: 1px solid #bbb;
-	}
+@media screen and (max-width: 770px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.2;
+    overflow-x: hidden;
+    padding: 2vw;
+    letter-spacing: -0.007em;
+  }
+
+  .designers {
+    overflow-x: hidden;
+    width: 80vw;
+  }
+
+  .main-header {
+    display: none;
+  }
+
+  .pseudo-header {
+    display: block;
+  }
+
+  .grid {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    /*max-width: 1000px;*/
+    align-items: center;
+    /*column-gap: 32px;*/
+  }
+
+  .grid-item {
+    overflow-x: hidden;
+    width: 100%;
+    padding: none;
+  }
+
+  .output-grid {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .output-grid img {
+    overflow-x: hidden;
+    height: auto;
+    padding: none;
+    width: 100%;
+  }
+
+  #imageToMove,
+  .hiddenlink {
+    display: none;
+  }
 }

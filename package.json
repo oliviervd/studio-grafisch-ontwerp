@@ -7,7 +7,9 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"preact": "^10.13.1"
+		"escape-html": "^1.0.3",
+		"preact": "^10.13.1",
+		"slate": "^0.100.0"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.5.0",

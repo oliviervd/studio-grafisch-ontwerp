@@ -1,42 +1,64 @@
-import { render } from 'preact';
-import preactLogo from './assets/preact.svg';
-import './style.css';
+import { render } from "preact";
+import { useEffect, useState } from "preact/hooks";
+import "./style.css";
+import { fetchPayload } from "./utils/fetchPayload";
+import { serialize } from "./utils/serialize";
 
 export function App() {
-	return (
-		<div>
-			<a href="https://preactjs.com" target="_blank">
-				<img src={preactLogo} alt="Preact logo" height="160" width="160" />
-			</a>
-			<h1>Get Started building Vite-powered Preact Apps </h1>
-			<section>
-				<Resource
-					title="Learn Preact"
-					description="If you're new to Preact, try the interactive tutorial to learn important concepts"
-					href="https://preactjs.com/tutorial"
-				/>
-				<Resource
-					title="Differences to React"
-					description="If you're coming from React, you may want to check out our docs to see where Preact differs"
-					href="https://preactjs.com/guide/v10/differences-to-react"
-				/>
-				<Resource
-					title="Learn Vite"
-					description="To learn more about Vite and how you can customize it to fit your needs, take a look at their excellent documentation"
-					href="https://vitejs.dev"
-				/>
-			</section>
-		</div>
-	);
+  let [language, setLanguage] = useState("aboutEN");
+
+  let _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
+  let _serializedAbout = "";
+  // function to fetch data from API
+  let _about = fetchPayload(_baseURI, "StudioGraphicAbout")
+    .then((data) => {
+      _about = data;
+      // fetch array that needs to be serialized based on the language
+      let _unserializedAbout = data["docs"][0][language][0];
+      // serialize content to HTML :D
+      _serializedAbout = serialize(_unserializedAbout);
+      renderSerializedAbout();
+      renderTranslateTo(language);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
+  function renderSerializedAbout() {
+    const section = document.querySelector(".about");
+    section.innerHTML = _serializedAbout;
+  }
+
+  function renderTranslateTo(lang) {
+    const translateTo = document.querySelector(".translateTo");
+    switch (language) {
+      case "aboutNL":
+        translateTo.innerHTML = "vertaal naar: ";
+        break;
+      case "aboutEN":
+        translateTo.innerHTML = "translate to: ";
+        break;
+      case "aboutFR":
+        translateTo.innerHTML = "traduire: ";
+        break;
+    }
+  }
+
+  return (
+    <div>
+      <header>
+        <p>
+          <div>
+            <span className="about"></span>
+            <span className="translateTo"></span>
+            <a onClick={() => setLanguage("aboutNL")}>NL</a>/
+            <a onClick={() => setLanguage("aboutEN")}>EN</a>/
+            <a onClick={() => setLanguage("aboutFR")}>FR</a>
+          </div>
+        </p>
+      </header>
+    </div>
+  );
 }
 
-function Resource(props) {
-	return (
-		<a href={props.href} target="_blank" class="resource">
-			<h2>{props.title}</h2>
-			<p>{props.description}</p>
-		</a>
-	);
-}
-
-render(<App />, document.getElementById('app'));
+render(<App />, document.getElementById("app"));
