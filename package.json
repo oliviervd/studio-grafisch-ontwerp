@@ -9,8 +9,8 @@
   "dependencies": {
     "@types/jquery": "^3.5.27",
     "escape-html": "^1.0.3",
-    "isotope-layout": "^3.0.6",
     "preact": "^10.13.1",
+    "react-masonry-component": "^6.3.0",
     "slate": "^0.100.0"
   },
   "devDependencies": {

@@ -1,20 +1,18 @@
 import { render } from "preact";
-import { useEffect, useState, useRef } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import "./style.css";
 import { fetchPayload } from "./utils/fetchPayload";
 import { serialize } from "./utils/serialize";
-import Isotope from "isotope-layout";
+import Masonry from "react-masonry-component";
 
 export function App() {
   const [language, setLanguage] = useState("aboutEN");
   const [output, setOutput] = useState([]);
   const [about, setAbout] = useState([]);
-  const [serializedAbout, setSerializedAbout] = useState("");
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
-  let _serializedAbout = "";
   // function to fetch data from API
-  //
+
   useEffect(() => {
     fetchPayload(_baseURI, "StudioGraphicAbout")
       .then((data) => {
@@ -38,28 +36,6 @@ export function App() {
     });
   }, []);
 
-  const gridRef = useRef(null);
-  const isotopeRef = useRef(null);
-
-  useEffect(() => {
-    if (gridRef.current) {
-      new Isotope(gridRef.current, {
-        itemSelector: ".grid-item",
-        layoutMode: "masonry",
-        masonry: {
-          gutter: 10,
-        },
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (gridRef.current) {
-      const iso = Isotope.data(gridRef.current);
-      iso.layout();
-    }
-  }, [output]);
-
   function renderTranslateTo(lang) {
     const translateTo = document.querySelector(".translateTo");
     switch (language) {
@@ -75,6 +51,15 @@ export function App() {
     }
   }
 
+  // masonry options
+  const masonryOptions = {
+    gutter: 20,
+  };
+
+  const styles = {
+    margin: "10px 0", // Adds 10px of space on the top and bottom of each element
+  };
+
   return (
     <div>
       <header>
@@ -88,13 +73,17 @@ export function App() {
           </div>
         </p>
       </header>
-      <section className="grid" ref={gridRef}>
+      <Masonry options={masonryOptions}>
         {output.map((o, index) => (
-          <a key={index}>
-            <img className={"grid-item"} src={o["mainMedia"]["url"]} />
-          </a>
+          <div style={styles}>
+            <img
+              onClick={() => console.log(o)}
+              className={"masonry-item box-shadow"}
+              src={o["mainMedia"]["url"]}
+            />
+          </div>
         ))}
-      </section>
+      </Masonry>
     </div>
   );
 }

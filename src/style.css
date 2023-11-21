@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Arial Rounded Bold";
-  src: url("../../pages/assets/Arial-Rounded-Bold.ttf"),
-    local("Arial Rounded Bold");
+  src: url("assets/Arial-Rounded-Bold.ttf"), local("Arial Rounded Bold");
 }
 
 body {
@@ -33,6 +32,21 @@ p {
 
 a:active {
   color: rgb(42, 55, 162);
+}
+
+.masonry {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: masonry;
+}
+
+.masonry-item {
+  width: 300px;
+}
+
+.box-shadow {
+  box-shadow: 0 0 10px 0.5px #d3cfcf;
 }
 
 /*2500*/
