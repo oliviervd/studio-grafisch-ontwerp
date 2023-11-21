@@ -1,11 +1,8 @@
-import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import "../style.css";
 import { fetchPayload } from "../utils/fetchPayload";
 import { serialize } from "../utils/serialize";
-import Masonry from "react-masonry-component";
 
-export function Home() {
+const Header = () => {
   const [language, setLanguage] = useState("aboutEN");
   const [output, setOutput] = useState([]);
   const [about, setAbout] = useState([]);
@@ -51,17 +48,9 @@ export function Home() {
     }
   }
 
-  // masonry options
-  const masonryOptions = {
-    gutter: 20,
-  };
-
-  const styles = {
-    margin: "10px 0", // Adds 10px of space on the top and bottom of each element
-  };
-
   return (
     <div>
+      {" "}
       <header>
         <p>
           <div>
@@ -73,19 +62,7 @@ export function Home() {
           </div>
         </p>
       </header>
-      <Masonry options={masonryOptions}>
-        {output.map((o, index) => (
-          <div style={styles}>
-            <img
-              onClick={() => console.log(o)}
-              className={"masonry-item box-shadow"}
-              src={o["mainMedia"]["url"]}
-            />
-          </div>
-        ))}
-      </Masonry>
     </div>
   );
-}
-
-export default Home;
+};
+export default Header;
