@@ -1,11 +1,11 @@
 import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import "./style.css";
-import { fetchPayload } from "./utils/fetchPayload";
-import { serialize } from "./utils/serialize";
+import "../style.css";
+import { fetchPayload } from "../utils/fetchPayload";
+import { serialize } from "../utils/serialize";
 import Masonry from "react-masonry-component";
 
-export function App() {
+export function Home() {
   const [language, setLanguage] = useState("aboutEN");
   const [output, setOutput] = useState([]);
   const [about, setAbout] = useState([]);
@@ -88,4 +88,4 @@ export function App() {
   );
 }
 
-render(<App />, document.getElementById("app"));
+export default Home;
