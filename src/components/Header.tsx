@@ -3,19 +3,19 @@ import { fetchPayload } from "../utils/fetchPayload";
 import { serialize } from "../utils/serialize";
 
 const Header = () => {
-  const [language, setLanguage] = useState("aboutEN");
-  const [output, setOutput] = useState([]);
+  const [language, setLanguage] = useState("descriptionEN");
   const [about, setAbout] = useState([]);
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
   // function to fetch data from API
 
   useEffect(() => {
-    fetchPayload(_baseURI, "StudioGraphicAbout")
+    fetchPayload(_baseURI, "studios")
       .then((data) => {
-        console.log(data);
+        //console.log(data["docs"][0]["textBlock"].language);
         setAbout(data);
-        let _unserializedAbout = data["docs"][0][language][0];
+        let _unserializedAbout = data["docs"][0]["textBlock"][language][0];
+        //console.log(_unserializedAbout);
         let _serializedAbout = serialize(_unserializedAbout);
         renderTranslateTo(language);
         const section = document.querySelector(".about");
@@ -25,13 +25,6 @@ const Header = () => {
         console.log(e);
       });
   }, [language]);
-
-  useEffect(() => {
-    fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
-      console.log(data);
-      setOutput(data["docs"]);
-    });
-  }, []);
 
   function renderTranslateTo(lang) {
     const translateTo = document.querySelector(".translateTo");
@@ -56,9 +49,9 @@ const Header = () => {
           <div>
             <span className="about"></span>
             <span className="translateTo"></span>
-            <a onClick={() => setLanguage("aboutNL")}>NL</a>/
-            <a onClick={() => setLanguage("aboutEN")}>EN</a>/
-            <a onClick={() => setLanguage("aboutFR")}>FR</a>
+            <a onClick={() => setLanguage("descriptionNL")}>NL</a>/
+            <a onClick={() => setLanguage("descriptionEN")}>EN</a>/
+            <a onClick={() => setLanguage("descriptionFr")}>FR</a>
           </div>
         </p>
       </header>
