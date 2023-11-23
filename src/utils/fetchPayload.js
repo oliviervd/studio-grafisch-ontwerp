@@ -1,3 +1,6 @@
+import { useQuery } from "react-query";
+import axios from "axios";
+
 export async function fetchPayload(BASE_URI, collection) {
   // function that fetches data from payload.
   try {
@@ -7,4 +10,12 @@ export async function fetchPayload(BASE_URI, collection) {
   } catch (e) {
     console.log(e);
   }
+}
+
+// react query
+export function fetchPayloadCache(BASE_URI, collection) {
+  useQuery("output", async () => {
+    const { data } = await axios.get(`${BASE_URI}/api/${collection}?limit=100`);
+    return data;
+  });
 }

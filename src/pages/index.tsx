@@ -1,9 +1,10 @@
 import { useState, useEffect } from "preact/hooks";
 import "../style.css";
-import { fetchPayload } from "../utils/fetchPayload";
+import { fetchPayload, fetchPayloadCache } from "../utils/fetchPayload";
 // import components
 import Masonry from "react-masonry-component";
 import Header from "../components/Header";
+import { Link } from "preact-router";
 export function Home() {
   const [output, setOutput] = useState([]);
 
@@ -31,11 +32,14 @@ export function Home() {
       <Masonry options={masonryOptions}>
         {output.map((o, index) => (
           <div style={styles}>
-            <img
-              onClick={() => console.log(o)}
-              className={"masonry-item box-shadow"}
-              src={o["mainMedia"]["url"]}
-            />
+            <Link href={`/work/${o.title}`}>
+              <img
+                onClick={() => console.log(o)}
+                className={"masonry-item box-shadow"}
+                src={o["mainMedia"]["url"]}
+                alt={`image depiciting the graphic design: ${o.title}`}
+              />
+            </Link>
           </div>
         ))}
       </Masonry>
