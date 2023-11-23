@@ -9,6 +9,8 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 const Main = () => {
+  //todo: add cacching using react-query
+
   /*
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
   useEffect(() => {

@@ -32,7 +32,7 @@ export function Home() {
       <Masonry options={masonryOptions}>
         {output.map((o, index) => (
           <div style={styles}>
-            <Link href={`/work/${o.title}`}>
+            <Link href={`/work/${o.uri}`}>
               <img
                 onClick={() => console.log(o)}
                 className={"masonry-item box-shadow"}

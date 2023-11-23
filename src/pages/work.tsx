@@ -4,7 +4,7 @@ import { fetchPayload } from "../utils/fetchPayload";
 import Header from "../components/Header";
 
 const Work = (props) => {
-  let work = window.location.href.split("/")[4].replaceAll("%20", " "); // read url (to know which data to fetch)
+  let uri = window.location.href.split("/")[4]; // read url (to know which data to fetch)
   const [output, setOutput] = useState([]);
   const [loaded, setLoaded] = useState(false);
   console.log(output);
@@ -16,14 +16,16 @@ const Work = (props) => {
       console.log(data["docs"]);
 
       for (let i = 0; i < data["docs"].length; i++) {
-        let title = data["docs"][i]["title"];
-        if (title === work) {
+        let _uri = data["docs"][i]["uri"];
+        if (_uri === uri) {
           setOutput(data["docs"][i]);
           setLoaded(true);
         }
       }
     });
   }, []);
+
+  // todo: add gallery
 
   return (
     <div>
