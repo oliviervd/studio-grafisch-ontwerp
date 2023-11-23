@@ -36,7 +36,7 @@ const Main = () => {
     <div>
       <Router>
         <Route path="/" component={Home} />
-        <Route path="/studio/" component={Studio} />
+        <Route path="/about/" component={Studio} />
         <Route path="/work/:title" component={Work} />
       </Router>
       <Analytics />
