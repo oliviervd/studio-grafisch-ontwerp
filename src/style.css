@@ -73,6 +73,18 @@ a:active {
   box-shadow: 0 0 10px 0.5px #d3cfcf;
 }
 
+.gallery {
+  display: flex;
+  height: 200px;
+}
+
+.gallery img {
+  margin-left: 20px;
+  width: auto;
+  object-fit: contain;
+  box-shadow: 0 0 10px 0.5px #d3cfcf;
+}
+
 .info {
   line-height: 0.2;
   width: 400;

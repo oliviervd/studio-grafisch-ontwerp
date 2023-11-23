@@ -8,6 +8,8 @@ const Work = (props) => {
   let uri = window.location.href.split("/")[4]; // read url (to know which data to fetch)
   const [output, setOutput] = useState([]);
   const [loaded, setLoaded] = useState(false);
+
+  let designer = "";
   console.log(output);
 
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
@@ -21,12 +23,11 @@ const Work = (props) => {
         if (_uri === uri) {
           setOutput(data["docs"][i]);
           setLoaded(true);
+          designer = output["designer"][0]["fullName"];
         }
       }
     });
   }, []);
-
-  // todo: add gallery
 
   return (
     <div>
@@ -35,7 +36,7 @@ const Work = (props) => {
         meta={[
           {
             name: "description",
-            content: `poster designed by ${output["designer"][0]["fullName"]} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`,
+            content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`,
           },
         ]}
       />
@@ -59,6 +60,13 @@ const Work = (props) => {
           <div>
             <img src={output.mainMedia.url} />
           </div>
+          {output.gallery && (
+            <div className="gallery">
+              {output.gallery.map((im) => (
+                <img src={im.image.url} />
+              ))}
+            </div>
+          )}
         </section>
       )}
     </div>
