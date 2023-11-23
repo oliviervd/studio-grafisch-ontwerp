@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 
-const About = () => {
-  // todo add designers
+const Studio = () => {
   return (
     <div>
       <Header />
@@ -9,4 +8,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Studio;

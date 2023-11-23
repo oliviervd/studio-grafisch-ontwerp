@@ -2,11 +2,12 @@ import { Router, Route } from "preact-router";
 import { h, render } from "preact";
 import { useEffect } from "preact/hooks";
 import Home from "./pages/index";
-import About from "./pages/about";
 import Work from "./pages/work";
+import Studio from "./pages/studio";
 import { fetchPayloadCache } from "./utils/fetchPayload";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Analytics } from "@vercel/analytics/react"; // analytics
 
 const Main = () => {
   //todo: add cacching using react-query
@@ -18,21 +19,28 @@ const Main = () => {
   }, []);
   */
 
+  /* 
   const usePosts = () =>
     useQuery("posts", async () => {
       const { data } = await axios.get(
         "https://jsonplaceholder.typicode.com/posts",
       );
       console.log(data);
-      return data;
+      return data;:w
+
     });
 
+  */
+
   return (
-    <Router>
-      <Route path="/" component={Home} />
-      <Route path="/about/" component={About} />
-      <Route path="/work/:title" component={Work} />
-    </Router>
+    <div>
+      <Router>
+        <Route path="/" component={Home} />
+        <Route path="/studio/" component={Studio} />
+        <Route path="/work/:title" component={Work} />
+      </Router>
+      <Analytics />
+    </div>
   );
 };
 
