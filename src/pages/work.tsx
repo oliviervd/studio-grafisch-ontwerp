@@ -31,7 +31,7 @@ const Work = (props) => {
       {loaded && (
         <section className="output-grid">
           <div className="info">
-            <p>{output.title}</p>
+            <p className="title">{output.title}</p>
             {output["designer"].map((name) => (
               <p>
                 <a href="">{name.fullName}</a>
