@@ -30,8 +30,17 @@ const Work = (props) => {
 
   return (
     <div>
-      {loaded && <Helmet tite={output.title} />}
+      <Helmet
+        title={output.title}
+        meta={[
+          {
+            name: "description",
+            content: `poster designed by ${output["designer"][0]["fullName"]} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`,
+          },
+        ]}
+      />
       <Header />
+
       {loaded && (
         <section className="output-grid">
           <div className="info">
