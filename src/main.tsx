@@ -1,21 +1,28 @@
 import { Router, Route } from "preact-router";
 import { h, render } from "preact";
-import { useEffect } from "preact/hooks";
 import Home from "./pages/index";
 import Work from "./pages/work";
 import Studio from "./pages/studio";
-import { fetchPayloadCache } from "./utils/fetchPayload";
-import { useQuery } from "react-query";
-import axios from "axios";
 import { Analytics } from "@vercel/analytics/react"; // analytics
+import Helmet from "preact-helmet";
 
 const Main = () => {
-  //todo: add cacching using react-query
+  //todo: add caching using react-query
 
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
   return (
     <div>
+      <Helmet
+        title="Studio Grafisch Ontwerp - Design Museum Gent"
+        meta={[
+          {
+            name: "description",
+            content:
+              "Website hosting the outputs created by Studio Grafisch Ontwerp. A collaboration between Design Museum Gent en 019",
+          },
+        ]}
+      />
       <Router>
         <Route path="/" component={Home} />
         <Route path="/about/" component={Studio} />

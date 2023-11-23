@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { fetchPayload } from "../utils/fetchPayload";
+import Helmet from "preact-helmet";
 import Header from "../components/Header";
 
 const Work = (props) => {
@@ -29,6 +30,7 @@ const Work = (props) => {
 
   return (
     <div>
+      {loaded && <Helmet tite={output.title} />}
       <Header />
       {loaded && (
         <section className="output-grid">
