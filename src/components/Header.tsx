@@ -29,13 +29,13 @@ const Header = () => {
   function renderTranslateTo(lang) {
     const translateTo = document.querySelector(".translateTo");
     switch (language) {
-      case "aboutNL":
+      case "descriptionNL":
         translateTo.innerHTML = "vertaal naar: ";
         break;
-      case "aboutEN":
+      case "descriptionEN":
         translateTo.innerHTML = "translate to: ";
         break;
-      case "aboutFR":
+      case "descriptionFr":
         translateTo.innerHTML = "traduire: ";
         break;
     }

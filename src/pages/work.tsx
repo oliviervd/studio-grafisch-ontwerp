@@ -6,6 +6,7 @@ import Header from "../components/Header";
 const Work = (props) => {
   let work = window.location.href.split("/")[4].replaceAll("%20", " "); // read url (to know which data to fetch)
   const [output, setOutput] = useState([]);
+  const [loaded, setLoaded] = useState(false);
   console.log(output);
 
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
@@ -18,6 +19,7 @@ const Work = (props) => {
         let title = data["docs"][i]["title"];
         if (title === work) {
           setOutput(data["docs"][i]);
+          setLoaded(true);
         }
       }
     });
@@ -26,24 +28,26 @@ const Work = (props) => {
   return (
     <div>
       <Header />
-      <section className="output-grid">
-        <div className="info">
-          <p>{output.title}</p>
-          {output["designer"].map((name) => (
+      {loaded && (
+        <section className="output-grid">
+          <div className="info">
+            <p>{output.title}</p>
+            {output["designer"].map((name) => (
+              <p>
+                <a href="">{name.fullName}</a>
+              </p>
+            ))}
             <p>
-              <a href="">{name.fullName}</a>
+              <span>{output.info.type.type}</span>
+              <span>, {output.info.printFormat}</span>
+              <span> {output.info.datePublished.split("-")[0]}</span>
             </p>
-          ))}
-          <p>
-            <span>{output.info.type.type}</span>
-            <span>, {output.info.printFormat}</span>
-            <span> {output.info.datePublished.split("-")[0]}</span>
-          </p>
-        </div>
-        <div>
-          <img src={output.mainMedia.url} />
-        </div>
-      </section>
+          </div>
+          <div>
+            <img src={output.mainMedia.url} />
+          </div>
+        </section>
+      )}
     </div>
   );
 };
