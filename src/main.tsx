@@ -12,25 +12,7 @@ import { Analytics } from "@vercel/analytics/react"; // analytics
 const Main = () => {
   //todo: add cacching using react-query
 
-  /*
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
-  useEffect(() => {
-    fetchPayloadCache(_baseURI, "graphicDesignOutput");
-  }, []);
-  */
-
-  /* 
-  const usePosts = () =>
-    useQuery("posts", async () => {
-      const { data } = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts",
-      );
-      console.log(data);
-      return data;:w
-
-    });
-
-  */
 
   return (
     <div>

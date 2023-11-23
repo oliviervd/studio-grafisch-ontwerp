@@ -10,11 +10,21 @@ export function Home() {
 
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
+  // cache data
   useEffect(() => {
-    fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
-      console.log(data);
-      setOutput(data["docs"]);
-    });
+    const cachedData = localStorage.getItem("graphicDesignOutput");
+    if (cachedData) {
+      setOutput(JSON.parse(cachedData));
+    } else {
+      fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
+        console.log(data);
+        setOutput(data["docs"]);
+        localStorage.setItem(
+          "graphicDesignOutput",
+          JSON.stringify(data["docs"]),
+        );
+      });
+    }
   }, []);
 
   // masonry options
