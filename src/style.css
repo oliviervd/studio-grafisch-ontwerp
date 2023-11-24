@@ -36,6 +36,10 @@ a:active {
   color: rgb(42, 55, 162);
 }
 
+.pseudo-header {
+  display: none;
+}
+
 .masonry {
   display: grid;
   grid-gap: 10px;
@@ -101,10 +105,6 @@ a:active {
     overflow-x: hidden;
     padding: 2vw;
     letter-spacing: -0.007em;
-  }
-
-  header {
-    display: none;
   }
 
   .designers {
