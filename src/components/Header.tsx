@@ -3,7 +3,7 @@ import { fetchPayload } from "../utils/fetchPayload";
 import { serialize } from "../utils/serialize";
 
 const Header = () => {
-  const [language, setLanguage] = useState("descriptionEN");
+  const [language, setLanguage] = useState("descriptionNL");
   const [about, setAbout] = useState([]);
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
