@@ -103,6 +103,10 @@ a:active {
     letter-spacing: -0.007em;
   }
 
+  header {
+    display: none;
+  }
+
   .designers {
     overflow-x: hidden;
     width: 80vw;
@@ -134,8 +138,20 @@ a:active {
   .output-grid {
     overflow-x: hidden;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
+
+  .gallery {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .gallery img {
+    padding: none;
+    margin-left: 0px;
+  }
+
   .output-grid img {
     overflow-x: hidden;
     height: auto;

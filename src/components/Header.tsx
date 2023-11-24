@@ -44,7 +44,7 @@ const Header = () => {
   return (
     <div>
       {" "}
-      <header>
+      <header className="main-header">
         <p>
           <div>
             <span className="about"></span>
@@ -53,6 +53,11 @@ const Header = () => {
             <a onClick={() => setLanguage("descriptionEN")}>EN</a>/
             <a onClick={() => setLanguage("descriptionFr")}>FR</a>
           </div>
+        </p>
+      </header>
+      <header className="pseudo-header">
+        <p>
+          <a href="/">Studio Grafisch Ontwerp</a>
         </p>
       </header>
     </div>
