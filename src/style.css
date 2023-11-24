@@ -84,7 +84,6 @@ a:active {
 
 .gallery img {
   margin-left: 20px;
-  width: auto;
   object-fit: contain;
   box-shadow: 0 0 10px 0.5px #d3cfcf;
 }
@@ -98,7 +97,19 @@ a:active {
   line-height: 1;
 }
 
+.masonry-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 770px) {
+  .masonry-desktop {
+    display: none;
+  }
+
+  .masonry-mobile {
+    display: flex;
+  }
+
   body {
     font-size: 1rem;
     line-height: 1.2;

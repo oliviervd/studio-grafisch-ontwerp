@@ -57,7 +57,7 @@ export function Home() {
   return (
     <div>
       <Header />
-      <Masonry options={masonryOptions}>
+      <Masonry className="masonry-desktop" options={masonryOptions}>
         {output.map((o, index) => (
           <div style={styles}>
             <Link href={`/work/${o.uri}`}>
@@ -71,6 +71,20 @@ export function Home() {
           </div>
         ))}
       </Masonry>
+      <section class="masonry-mobile gallery">
+        {output.map((o, index) => (
+          <div style={styles}>
+            <Link href={`/work/${o.uri}`}>
+              <img
+                onClick={() => console.log(o)}
+                className={"masonry-item box-shadow"}
+                src={o["mainMedia"]["url"]}
+                alt={`image depiciting the graphic design: ${o.title}`}
+              />
+            </Link>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
