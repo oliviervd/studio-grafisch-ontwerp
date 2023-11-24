@@ -13,6 +13,12 @@ export function Home() {
 
   // cache data
   useEffect(() => {
+    // clear cache on first time loading the page
+    if (!localStorage.getItem("firstLoad")) {
+      localStorage.clear();
+      localStorage.setItem("firstLoad", "true");
+    }
+
     const cachedData = localStorage.getItem("graphicDesignOutput");
     if (cachedData) {
       setOutput(JSON.parse(cachedData));
