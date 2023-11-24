@@ -15,6 +15,7 @@ export function Home() {
   useEffect(() => {
     const cachedData = localStorage.getItem("graphicDesignOutput");
     if (cachedData) {
+      console.log(cachedData);
       setOutput(JSON.parse(cachedData));
     } else {
       fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
@@ -25,16 +26,18 @@ export function Home() {
         );
       });
     }
-  }, []);
 
-  // sort items by Date (new to old)
-  if (output) {
-    output.sort((a, b) => {
-      let dateA = new Date(a.info.datePublished);
-      let dateB = new Date(b.info.datePublished);
-      return dateB - dateA; // reverse to show oldest to new.
-    });
-  }
+    console.log(output);
+
+    // sort items by Date (new to old)
+    if (output.length != 0) {
+      output.sort((a, b) => {
+        let dateA = new Date(a.info.datePublished);
+        let dateB = new Date(b.info.datePublished);
+        return dateB - dateA; // reverse to show oldest to new.
+      });
+    }
+  }, []);
 
   // masonry options
   const masonryOptions = {

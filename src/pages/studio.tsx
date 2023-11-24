@@ -15,10 +15,7 @@ const Studio = () => {
     } else {
       fetchPayload(_baseURI, "Members").then((data) => {
         setDesigners(data["docs"]);
-        localStorage.setItem(
-          "graphicDesignOutput",
-          JSON.stringify(data["docs"]),
-        );
+        localStorage.setItem("Members", JSON.stringify(data["docs"]));
       });
     }
   }, []);
