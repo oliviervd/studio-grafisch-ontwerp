@@ -11,11 +11,3 @@ export async function fetchPayload(BASE_URI, collection) {
     console.log(e);
   }
 }
-
-// react query
-export function fetchPayloadCache(BASE_URI, collection) {
-  useQuery("output", async () => {
-    const { data } = await axios.get(`${BASE_URI}/api/${collection}?limit=100`);
-    return data;
-  });
-}

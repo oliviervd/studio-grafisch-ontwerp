@@ -1,14 +1,14 @@
 import { useState, useEffect } from "preact/hooks";
 import "../style.css";
-import { fetchPayload, fetchPayloadCache } from "../utils/fetchPayload";
-// import components
+import { fetchPayload } from "../utils/fetchPayload";
 import Masonry from "react-masonry-component";
 import Header from "../components/Header";
 import { Link } from "preact-router";
 export function Home() {
+  // init collection for output metadata;
   const [output, setOutput] = useState([]);
-  console.log(output);
 
+  // set _baseURI - todo: put _baseURI in env.
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
   // cache data
@@ -21,18 +21,19 @@ export function Home() {
 
     const cachedData = localStorage.getItem("graphicDesignOutput");
     if (cachedData) {
+      // check if cachedData exists, if so - use CachedData
       setOutput(JSON.parse(cachedData));
     } else {
+      // if cache doesn't exist. Fetch data from Payload.
       fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
         setOutput(data["docs"]);
+        // cache fetched data.
         localStorage.setItem(
           "graphicDesignOutput",
           JSON.stringify(data["docs"]),
         );
       });
     }
-
-    console.log(output);
   }, []);
 
   // sort items by Date (new to old)
