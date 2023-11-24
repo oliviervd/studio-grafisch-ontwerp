@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { Link } from "preact-router";
 export function Home() {
   const [output, setOutput] = useState([]);
+  console.log(output);
 
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
 
@@ -17,7 +18,6 @@ export function Home() {
       setOutput(JSON.parse(cachedData));
     } else {
       fetchPayload(_baseURI, "graphicDesignOutput").then((data) => {
-        console.log(data);
         setOutput(data["docs"]);
         localStorage.setItem(
           "graphicDesignOutput",
@@ -26,6 +26,15 @@ export function Home() {
       });
     }
   }, []);
+
+  // sort items by Date (new to old)
+  if (output) {
+    output.sort((a, b) => {
+      let dateA = new Date(a.info.datePublished);
+      let dateB = new Date(b.info.datePublished);
+      return dateB - dateA; // reverse to show oldest to new.
+    });
+  }
 
   // masonry options
   const masonryOptions = {
