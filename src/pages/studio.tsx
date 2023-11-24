@@ -9,15 +9,9 @@ const Studio = () => {
   console.log(designers);
   // fetch API - designers
   useEffect(() => {
-    const cachedData = localStorage.getItem("Members");
-    if (cachedData) {
-      setDesigners(JSON.parse(cachedData));
-    } else {
-      fetchPayload(_baseURI, "Members").then((data) => {
-        setDesigners(data["docs"]);
-        localStorage.setItem("Members", JSON.stringify(data["docs"]));
-      });
-    }
+    fetchPayload(_baseURI, "Members").then((data) => {
+      setDesigners(data["docs"]);
+    });
   }, []);
 
   return (
