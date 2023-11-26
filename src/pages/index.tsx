@@ -69,7 +69,6 @@ export function Home() {
           <div style={styles}>
             <Link href={`/work/${o.uri}`}>
               <img
-                onClick={() => console.log(o)}
                 className={"masonry-item box-shadow"}
                 src={o["mainMedia"]["url"]}
                 alt={`image depiciting the graphic design: ${o.title}`}
