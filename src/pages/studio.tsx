@@ -10,13 +10,19 @@ const Studio = () => {
   // fetch API - designers
   useEffect(() => {
     const cachedData = localStorage.getItem("Members");
+    const abortController = new AbortController();
+    
     if (cachedData) {
       setDesigners(JSON.parse(cachedData));
     } else {
-      fetchPayload(_baseURI, "Members").then((data) => {
+      fetchPayload(_baseURI, "Members", abortController.signal).then((data) => {
         setDesigners(data["docs"]);
         localStorage.setItem("Members", JSON.stringify(data["docs"]));
       });
+    }
+    // cancel the fetch request when the component unmounts
+    return () => {
+      abortController.abort();
     }
   }, []);
 
