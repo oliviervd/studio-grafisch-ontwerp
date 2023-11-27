@@ -11,7 +11,7 @@ const Studio = () => {
   useEffect(() => {
     const cachedData = localStorage.getItem("Members");
     const abortController = new AbortController();
-    
+
     if (cachedData) {
       setDesigners(JSON.parse(cachedData));
     } else {
@@ -23,7 +23,7 @@ const Studio = () => {
     // cancel the fetch request when the component unmounts
     return () => {
       abortController.abort();
-    }
+    };
   }, []);
 
   return (
@@ -37,8 +37,9 @@ const Studio = () => {
             <div>
               <p>
                 <span>
-                  <a>{designer.fullName}</a>:{" "}
+                  <a>{designer.fullName}</a>{" "}
                 </span>
+                {/*
                 <span>
                   {designer.active.memberFrom.split("T")[0]} -{" "}
                   <span>
@@ -47,6 +48,7 @@ const Studio = () => {
                     )}
                   </span>
                 </span>
+                */}
               </p>
             </div>
           ))}
