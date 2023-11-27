@@ -189,11 +189,11 @@ a:active {
   }
 
   .main-header {
-    display: none;
+    display: block;
   }
 
   .pseudo-header {
-    display: block;
+    display: none;
   }
 
   .masonry {
