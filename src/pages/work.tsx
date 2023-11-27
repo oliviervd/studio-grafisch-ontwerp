@@ -63,7 +63,7 @@ const Work = (props) => {
           {output.gallery && (
             <div className="gallery">
               {output.gallery.map((im) => (
-                <img src={im.image.url} />
+                <img src={im.image.url} loading="lazy" />
               ))}
             </div>
           )}

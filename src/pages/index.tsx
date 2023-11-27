@@ -4,10 +4,12 @@ import { fetchPayload } from "../utils/fetchPayload";
 import Masonry from "react-masonry-component";
 import Header from "../components/Header";
 import { Link } from "preact-router";
+
 export function Home() {
   // init collection for output metadata;
   const [output, setOutput] = useState([]);
   const [gridless, setGridless] = useState(false);
+  let _random = [];
 
   // set _baseURI - todo: put _baseURI in env.
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
@@ -83,6 +85,7 @@ export function Home() {
               <Link href={`/work/${o.uri}`}>
                 <img
                   className={"masonry-item box-shadow"}
+                  loading="lazy"
                   src={o["mainMedia"]["url"]}
                   alt={`image depiciting the graphic design: ${o.title}`}
                 />
@@ -100,6 +103,7 @@ export function Home() {
             >
               <img
                 className={""}
+                loading="lazy"
                 src={o["mainMedia"]["url"]}
                 alt={`image depiciting the graphic design: ${o.title}`}
               />
@@ -114,6 +118,7 @@ export function Home() {
               <img
                 onClick={() => console.log(o)}
                 className={"masonry-item box-shadow"}
+                loading="lazy"
                 src={o["mainMedia"]["url"]}
                 alt={`image depiciting the graphic design: ${o.title}`}
               />

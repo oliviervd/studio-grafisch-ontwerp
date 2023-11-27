@@ -123,7 +123,7 @@ a:active {
 }
 
 .gridless__image-box:nth-child(odd) img {
-  transform: translateY(10%);
+  transform: translateY(-5%);
 }
 
 .gridless__image-box:nth-child(5n + 0) img {
@@ -135,7 +135,7 @@ a:active {
 }
 
 .billboard {
-  width: 60%;
+  width: 70%;
 }
 
 .A0 {
@@ -154,8 +154,7 @@ a:active {
   width: 30%;
 }
 
-.A4,
-.undefined {
+.A4 {
   width: 25%;
 }
 
