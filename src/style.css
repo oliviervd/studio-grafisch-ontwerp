@@ -123,7 +123,7 @@ a:active {
 }
 
 .gridless__image-box:nth-child(odd) img {
-  transform: translateY(-10%);
+  transform: translateY(10%);
 }
 
 .gridless__image-box:nth-child(5n + 0) img {
