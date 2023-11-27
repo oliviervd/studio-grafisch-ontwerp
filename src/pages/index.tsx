@@ -14,12 +14,16 @@ export function Home() {
   // cache data
   useEffect(() => {
     const abortController = new AbortController();
-    
+
     // clear cache on first time loading the page
+    /*
     if (!localStorage.getItem("firstLoad")) {
       localStorage.clear();
       localStorage.setItem("firstLoad", "true");
     }
+    */
+
+    localStorage.clear();
 
     const cachedData = localStorage.getItem("graphicDesignOutput");
     if (cachedData) {
@@ -27,7 +31,11 @@ export function Home() {
       setOutput(JSON.parse(cachedData));
     } else {
       // if cache doesn't exist. Fetch data from Payload.
-      fetchPayload(_baseURI, "graphicDesignOutput", abortController.signal).then((data) => {
+      fetchPayload(
+        _baseURI,
+        "graphicDesignOutput",
+        abortController.signal,
+      ).then((data) => {
         setOutput(data["docs"]);
         // cache fetched data.
         localStorage.setItem(
@@ -40,7 +48,7 @@ export function Home() {
     // cancel the fetch request when the component unmounts
     return () => {
       abortController.abort();
-    }
+    };
   }, []);
 
   // sort items by Date (new to old)

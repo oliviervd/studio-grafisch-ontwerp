@@ -7,10 +7,6 @@ import { Analytics } from "@vercel/analytics/react"; // analytics
 import Helmet from "preact-helmet";
 
 const Main = () => {
-  //todo: add caching using react-query
-
-  const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
-
   return (
     <div>
       <Helmet
