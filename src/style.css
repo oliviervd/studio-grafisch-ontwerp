@@ -101,6 +101,72 @@ a:active {
   display: none;
 }
 
+.gridless__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gridless__image-box {
+  margin: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.gridless__image-box img {
+  object-fit: contain;
+  width: 50%;
+  justify-content: center;
+}
+
+.gridless__image-box:nth-child(3n + 0) img {
+  transform: translateX(60%);
+}
+
+.gridless__image-box:nth-child(odd) img {
+  transform: translateY(-10%);
+}
+
+.gridless__image-box:nth-child(5n + 0) img {
+  transform: translateX(10%);
+}
+
+.gridless__image-box:nth-child(2n + 0) img {
+  transform: translateX(20%);
+}
+
+.billboard {
+  width: 60%;
+}
+
+.A0 {
+  width: 45%;
+}
+
+.A1 {
+  width: 40%;
+}
+
+.A2 {
+  width: 35%;
+}
+
+.A3 {
+  width: 30%;
+}
+
+.A4,
+.undefined {
+  width: 25%;
+}
+
+.A5 {
+  width: 20%;
+}
+
+.A6 {
+  width: 15%;
+}
+
 @media screen and (max-width: 770px) {
   .masonry-desktop {
     display: none;

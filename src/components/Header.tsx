@@ -2,7 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { fetchPayload } from "../utils/fetchPayload";
 import { serialize } from "../utils/serialize";
 
-const Header = () => {
+const Header = ({ setGridless }) => {
   const [language, setLanguage] = useState("descriptionNL");
   const [about, setAbout] = useState([]);
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
@@ -28,17 +28,35 @@ const Header = () => {
 
   function renderTranslateTo(lang) {
     const translateTo = document.querySelector(".translateTo");
+    const setGrid = document.querySelector(".setGrid");
+    const on = document.querySelector(".on");
+    const off = document.querySelector(".off");
     switch (language) {
       case "descriptionNL":
         translateTo.innerHTML = "vertaal naar: ";
+        setGrid.innerHTML = " Zet grid: ";
+        on.innerHTML = "aan";
+        off.innerHTML = "uit";
         break;
       case "descriptionEN":
         translateTo.innerHTML = "translate to: ";
+        setGrid.innerHTML = " Turn grid: ";
+        on.innerHTML = "on";
+        off.innerHTML = "off";
+
         break;
       case "descriptionFr":
         translateTo.innerHTML = "traduire: ";
+        setGrid.innerHTML = " La grille: ";
+        on.innerHTML = "activez";
+        off.innerHTML = "désactivez";
+
         break;
     }
+  }
+
+  function handleClick(state) {
+    setGridless(state);
   }
 
   return (
@@ -52,6 +70,9 @@ const Header = () => {
             <a onClick={() => setLanguage("descriptionNL")}>NL</a>/
             <a onClick={() => setLanguage("descriptionEN")}>EN</a>/
             <a onClick={() => setLanguage("descriptionFr")}>FR</a>
+            <span className="setGrid"></span>
+            <a className="on" onClick={() => handleClick(false)}></a>/
+            <a className="off" onClick={() => handleClick(true)}></a>
           </div>
         </p>
       </header>

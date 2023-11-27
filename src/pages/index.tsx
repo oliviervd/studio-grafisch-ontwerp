@@ -7,9 +7,12 @@ import { Link } from "preact-router";
 export function Home() {
   // init collection for output metadata;
   const [output, setOutput] = useState([]);
+  const [gridless, setGridless] = useState(false);
 
   // set _baseURI - todo: put _baseURI in env.
   const _baseURI = "https://p01--admin-cms--qbt6mytl828m.code.run";
+
+  console.log(this.updateParentState);
 
   // cache data
   useEffect(() => {
@@ -71,20 +74,38 @@ export function Home() {
 
   return (
     <div>
-      <Header />
-      <Masonry className="masonry-desktop" options={masonryOptions}>
-        {output.map((o, index) => (
-          <div style={styles}>
-            <Link href={`/work/${o.uri}`}>
+      <Header setGridless={setGridless} />
+
+      {!gridless && (
+        <Masonry className="masonry-desktop" options={masonryOptions}>
+          {output.map((o, index) => (
+            <div style={styles}>
+              <Link href={`/work/${o.uri}`}>
+                <img
+                  className={"masonry-item box-shadow"}
+                  src={o["mainMedia"]["url"]}
+                  alt={`image depiciting the graphic design: ${o.title}`}
+                />
+              </Link>
+            </div>
+          ))}
+        </Masonry>
+      )}
+      {gridless && (
+        <section className="gridless__container">
+          {output.map((o) => (
+            <div
+              className={`gridless__image-box ${o.info.printFormat} ${o.info.type.type}`}
+            >
               <img
-                className={"masonry-item box-shadow"}
+                className={""}
                 src={o["mainMedia"]["url"]}
                 alt={`image depiciting the graphic design: ${o.title}`}
               />
-            </Link>
-          </div>
-        ))}
-      </Masonry>
+            </div>
+          ))}
+        </section>
+      )}
       <section class="masonry-mobile gallery">
         {output.map((o, index) => (
           <div style={styles}>
