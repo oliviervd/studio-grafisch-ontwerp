@@ -94,7 +94,8 @@ export function Home() {
       {gridless && (
         <section className="gridless__container">
           {output.map((o) => (
-            <div
+            <Link
+              href={`/work/${o.uri}`}
               className={`gridless__image-box ${o.info.printFormat} ${o.info.type.type}`}
             >
               <img
@@ -102,7 +103,7 @@ export function Home() {
                 src={o["mainMedia"]["url"]}
                 alt={`image depiciting the graphic design: ${o.title}`}
               />
-            </div>
+            </Link>
           ))}
         </section>
       )}

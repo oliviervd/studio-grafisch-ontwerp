@@ -154,7 +154,8 @@ a:active {
   width: 30%;
 }
 
-.A4 {
+.A4,
+.undefined {
   width: 25%;
 }
 
