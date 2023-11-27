@@ -176,8 +176,8 @@ a:active {
   }
 
   body {
-    font-size: 1rem;
-    line-height: 1.2;
+    font-size: 0.8rem;
+    line-height: 1.05;
     overflow-x: hidden;
     padding: 2vw;
     letter-spacing: -0.007em;

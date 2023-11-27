@@ -79,20 +79,37 @@ export function Home() {
       <Header setGridless={setGridless} />
 
       {!gridless && (
-        <Masonry className="masonry-desktop" options={masonryOptions}>
-          {output.map((o, index) => (
-            <div style={styles}>
-              <Link href={`/work/${o.uri}`}>
-                <img
-                  className={"masonry-item box-shadow"}
-                  loading="lazy"
-                  src={o["mainMedia"]["url"]}
-                  alt={`image depiciting the graphic design: ${o.title}`}
-                />
-              </Link>
-            </div>
-          ))}
-        </Masonry>
+        <div>
+          <Masonry className="masonry-desktop" options={masonryOptions}>
+            {output.map((o, index) => (
+              <div style={styles}>
+                <Link href={`/work/${o.uri}`}>
+                  <img
+                    className={"masonry-item box-shadow"}
+                    loading="lazy"
+                    src={o["mainMedia"]["url"]}
+                    alt={`image depiciting the graphic design: ${o.title}`}
+                  />
+                </Link>
+              </div>
+            ))}
+          </Masonry>
+          <section class="masonry-mobile gallery">
+            {output.map((o, index) => (
+              <div style={styles}>
+                <Link href={`/work/${o.uri}`}>
+                  <img
+                    onClick={() => console.log(o)}
+                    className={"masonry-item box-shadow"}
+                    loading="lazy"
+                    src={o["mainMedia"]["url"]}
+                    alt={`image depiciting the graphic design: ${o.title}`}
+                  />
+                </Link>
+              </div>
+            ))}
+          </section>
+        </div>
       )}
       {gridless && (
         <section className="gridless__container">
@@ -111,21 +128,6 @@ export function Home() {
           ))}
         </section>
       )}
-      <section class="masonry-mobile gallery">
-        {output.map((o, index) => (
-          <div style={styles}>
-            <Link href={`/work/${o.uri}`}>
-              <img
-                onClick={() => console.log(o)}
-                className={"masonry-item box-shadow"}
-                loading="lazy"
-                src={o["mainMedia"]["url"]}
-                alt={`image depiciting the graphic design: ${o.title}`}
-              />
-            </Link>
-          </div>
-        ))}
-      </section>
     </div>
   );
 }
