@@ -248,7 +248,7 @@ a:active {
     display: flex;
     height: auto;
     flex-direction: column;
-    padding-right: none;
+    padding-right: 0px;
   }
 
   .gallery img {
