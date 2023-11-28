@@ -17,6 +17,7 @@ body {
 
 h3 {
   font-size: 1.5rem;
+  font-weight: 100;
 }
 
 a {
@@ -245,5 +246,11 @@ a:active {
   #imageToMove,
   .hiddenlink {
     display: none;
+  }
+
+  .gridless__image-box img {
+    object-fit: contain;
+    width: 100%;
+    justify-content: center;
   }
 }

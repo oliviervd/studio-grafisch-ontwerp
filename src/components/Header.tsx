@@ -33,23 +33,23 @@ const Header = ({ setGridless }) => {
     const off = document.querySelector(".off");
     switch (language) {
       case "descriptionNL":
-        translateTo.innerHTML = "vertaal naar: ";
-        setGrid.innerHTML = " Zet grid: ";
+        translateTo.innerHTML = " Vertaal naar: ";
+        setGrid.innerHTML = "Zet grid: ";
         on.innerHTML = "aan";
-        off.innerHTML = "uit";
+        off.innerHTML = "uit.";
         break;
       case "descriptionEN":
-        translateTo.innerHTML = "translate to: ";
-        setGrid.innerHTML = " Turn grid: ";
+        translateTo.innerHTML = " Translate to: ";
+        setGrid.innerHTML = "Turn grid: ";
         on.innerHTML = "on";
-        off.innerHTML = "off";
+        off.innerHTML = "off.";
 
         break;
       case "descriptionFr":
-        translateTo.innerHTML = "traduire: ";
-        setGrid.innerHTML = " La grille: ";
+        translateTo.innerHTML = " Traduire: ";
+        setGrid.innerHTML = "La grille: ";
         on.innerHTML = "activez";
-        off.innerHTML = "désactivez";
+        off.innerHTML = "désactivez.";
 
         break;
     }
@@ -69,7 +69,7 @@ const Header = ({ setGridless }) => {
             <span className="translateTo"></span>
             <a onClick={() => setLanguage("descriptionNL")}>NL</a>/
             <a onClick={() => setLanguage("descriptionEN")}>EN</a>/
-            <a onClick={() => setLanguage("descriptionFr")}>FR</a>
+            <a onClick={() => setLanguage("descriptionFr")}>FR. </a>
             <span className="setGrid"></span>
             <a className="on" onClick={() => handleClick(false)}></a>/
             <a className="off" onClick={() => handleClick(true)}></a>
