@@ -135,6 +135,14 @@ a:active {
   transform: translateX(20%);
 }
 
+.work-page .showGrid {
+  display: none;
+}
+
+.about-page .showGrid {
+  display: none;
+}
+
 .billboard {
   width: 70%;
 }

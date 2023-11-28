@@ -30,7 +30,7 @@ const Work = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="work-page">
       <Helmet
         title={output.title}
         meta={[

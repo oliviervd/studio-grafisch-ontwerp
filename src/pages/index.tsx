@@ -76,7 +76,7 @@ export function Home() {
 
   return (
     <div>
-      <Header setGridless={setGridless} />
+      <Header setGridless={setGridless} showGrid-={true} />
 
       {!gridless && (
         <div>

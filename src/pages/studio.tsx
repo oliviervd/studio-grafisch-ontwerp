@@ -27,7 +27,7 @@ const Studio = () => {
   }, []);
 
   return (
-    <div>
+    <div className={"about-page"}>
       <Header />
       <br />
       {designers && (

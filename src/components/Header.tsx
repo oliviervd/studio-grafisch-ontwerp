@@ -70,9 +70,11 @@ const Header = ({ setGridless }) => {
             <a onClick={() => setLanguage("descriptionNL")}>NL</a>/
             <a onClick={() => setLanguage("descriptionEN")}>EN</a>/
             <a onClick={() => setLanguage("descriptionFr")}>FR. </a>
-            <span className="setGrid"></span>
-            <a className="on" onClick={() => handleClick(false)}></a>/
-            <a className="off" onClick={() => handleClick(true)}></a>
+            <span className="showGrid">
+              <span className="setGrid"></span>
+              <a className="on" onClick={() => handleClick(false)}></a>/
+              <a className="off" onClick={() => handleClick(true)}></a>
+            </span>
           </div>
         </p>
       </header>
