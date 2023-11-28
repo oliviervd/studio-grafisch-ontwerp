@@ -48,7 +48,9 @@ const Work = (props) => {
             <p className="title">{output.title}</p>
             {output["designer"].map((name) => (
               <p>
-                <a href="">{name.fullName}</a>
+                <p className="non-click-link" href="">
+                  {name.fullName}
+                </p>
               </p>
             ))}
             <p>
