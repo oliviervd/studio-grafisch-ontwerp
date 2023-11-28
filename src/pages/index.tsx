@@ -119,7 +119,7 @@ export function Home() {
               className={`gridless__image-box ${o.info.printFormat} ${o.info.type.type}`}
             >
               <img
-                className={""}
+                className={"box-shadow-gridless"}
                 loading="lazy"
                 src={o["mainMedia"]["url"]}
                 alt={`image depiciting the graphic design: ${o.title}`}

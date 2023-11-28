@@ -57,6 +57,11 @@ a:active {
   box-shadow: 0 0 10px 0.5px #d3cfcf;
 }
 
+.box-shadow-gridless {
+  box-shadow: 0 0 10px 0.5px #d3cfcf;
+  height: fit-content;
+}
+
 /*2500*/
 .grid::after {
   clear: both;
