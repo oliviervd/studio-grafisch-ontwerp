@@ -36,9 +36,16 @@ const Studio = () => {
           {designers.map((designer) => (
             <div>
               <p>
-                <span>
-                  <a>{designer.fullName}</a>{" "}
-                </span>
+                {designer.portfolio && (
+                  <span>
+                    <a href={designer.portfolio}>{designer.fullName}</a>{" "}
+                  </span>
+                )}
+                {!designer.portfolio && (
+                  <span>
+                    <p className="non-click-link">{designer.fullName}</p>
+                  </span>
+                )}
                 {/*
                 <span>
                   {designer.active.memberFrom.split("T")[0]} -{" "}

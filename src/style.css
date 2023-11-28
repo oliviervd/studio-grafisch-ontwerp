@@ -147,6 +147,10 @@ a:active {
   width: 70%;
 }
 
+.non-click-link {
+  color: rgb(42, 55, 162);
+}
+
 .A0 {
   width: 45%;
 }
