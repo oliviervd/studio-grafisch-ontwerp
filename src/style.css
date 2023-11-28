@@ -23,6 +23,7 @@ h3 {
 a {
   text-decoration: underline;
   color: rgb(42, 55, 162);
+  cursor: grab;
 }
 
 a:hover {
