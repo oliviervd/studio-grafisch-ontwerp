@@ -5,6 +5,10 @@ import Work from "./pages/work";
 import Studio from "./pages/studio";
 import { Analytics } from "@vercel/analytics/react"; // analytics
 import Helmet from "preact-helmet";
+import ReactGA from 'react-ga';
+// Initialize React Ga with your tracking ID
+ReactGA.initialize('G-CL57H808E1');
+
 
 const Main = () => {
   return (
