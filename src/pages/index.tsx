@@ -105,7 +105,7 @@ export function Home() {
             {
               name:"description",
               property:"og:description",
-              content: "Studio Grafisch Ontwerp offers a program for recently graduated graphic designers from LUCA School of Arts and KASK & Conservatorium/HOGENT and Howest in which the identity of Design Museum Gent is reviewed. During the renovation and expansion of Design Museum Gent, Studio Grafisch Ontwerp explores the identities a museum can adopt today. Experimentation, self-initiated projects and internal assignments are central with the aim of exploring different (graphic) identities. Members alternate on a regular basis. 019 and Design Museum Gent provide a professional framework throughout the process.""
+              content: "Studio Grafisch Ontwerp offers a program for recently graduated graphic designers from LUCA School of Arts and KASK & Conservatorium/HOGENT and Howest in which the identity of Design Museum Gent is reviewed. During the renovation and expansion of Design Museum Gent, Studio Grafisch Ontwerp explores the identities a museum can adopt today. Experimentation, self-initiated projects and internal assignments are central with the aim of exploring different (graphic) identities. Members alternate on a regular basis. 019 and Design Museum Gent provide a professional framework throughout the process."
             }
           ]}
       />
