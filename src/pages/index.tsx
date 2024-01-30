@@ -4,6 +4,7 @@ import { fetchPayload } from "../utils/fetchPayload";
 import Masonry from "react-masonry-component";
 import Header from "../components/Header";
 import { Link } from "preact-router";
+import {h} from "preact";
 
 export function Home() {
   // init collection for output metadata;
@@ -76,6 +77,38 @@ export function Home() {
 
   return (
     <div>
+      <Helmet
+          title="Studio Grafisch Ontwerp"
+          meta={[
+            {
+              name: "description",
+              content: "Studio Grafisch Ontwerp offers a program for recently graduated graphic designers from LUCA School of Arts and KASK & Conservatorium/HOGENT and Howest in which the identity of Design Museum Gent is reviewed. During the renovation and expansion of Design Museum Gent, Studio Grafisch Ontwerp explores the identities a museum can adopt today. Experimentation, self-initiated projects and internal assignments are central with the aim of exploring different (graphic) identities. Members alternate on a regular basis. 019 and Design Museum Gent provide a professional framework throughout the process.""
+            },
+            {
+              property:"og:title",
+              content: "Studio Grafisch Ontwerp"
+            },
+            {
+              property:"og:type",
+              content: 'website'
+            },
+            {
+              name:"image",
+              property:"og:image:secure",
+              content: "https://d2yoaaok6mt608.cloudfront.net/Scherm%C3%82%C2%ADafbeelding%202024-01-30%20om%2016.41.32.png"
+            },
+            {
+              name:"image",
+              property:"og:image",
+              content: "https://d2yoaaok6mt608.cloudfront.net/Scherm%C3%82%C2%ADafbeelding%202024-01-30%20om%2016.41.32.png"
+            },
+            {
+              name:"description",
+              property:"og:description",
+              content: "Studio Grafisch Ontwerp offers a program for recently graduated graphic designers from LUCA School of Arts and KASK & Conservatorium/HOGENT and Howest in which the identity of Design Museum Gent is reviewed. During the renovation and expansion of Design Museum Gent, Studio Grafisch Ontwerp explores the identities a museum can adopt today. Experimentation, self-initiated projects and internal assignments are central with the aim of exploring different (graphic) identities. Members alternate on a regular basis. 019 and Design Museum Gent provide a professional framework throughout the process.""
+            }
+          ]}
+      />
       <Header setGridless={setGridless} showGrid-={true} />
 
       {!gridless && (
