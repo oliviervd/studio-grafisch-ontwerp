@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react"; // analytics
 import Helmet from "preact-helmet";
 import ReactGA from 'react-ga';
 // Initialize React Ga with your tracking ID
-ReactGA.initialize('G-CL57H808E1');
+ReactGA.initialize('G-LDGY6JD14T');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const Main = () => {
