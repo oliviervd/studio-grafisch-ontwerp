@@ -48,7 +48,7 @@ const Work = (props) => {
                   content: 'website'
                 },
                 {
-                  name:"og:image",
+                  name:"og:image:secure",
                   content: `${output.mainMedia.url}`
                 },
                 {
