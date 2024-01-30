@@ -31,15 +31,38 @@ const Work = (props) => {
 
   return (
     <div className="work-page">
-      <Helmet
-        title={output.title}
-        meta={[
-          {
-            name: "description",
-            content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`,
-          },
-        ]}
-      />
+      {loaded &&
+          <Helmet
+              title={output.title}
+              meta={[
+                {
+                  name: "description",
+                  content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`,
+                },
+                {
+                  name:"og:title",
+                  content: `${output.title}`
+                },
+                {
+                  name:"og:type",
+                  content: 'website'
+                },
+                {
+                  name:"og:image",
+                  content: `${output.mainMedia.url}`
+                },
+                {
+                  name:"og:description",
+                  content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`
+                },
+                {
+                  name:"twitter:title",
+                  content: `${output.title}`
+                }
+              ]}
+          />
+      }
+
       <Header />
 
       {loaded && (
