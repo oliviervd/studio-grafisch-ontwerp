@@ -5,6 +5,7 @@ import Masonry from "react-masonry-component";
 import Header from "../components/Header";
 import { Link } from "preact-router";
 import {h} from "preact";
+import Helmet from "preact-helmet";
 
 export function Home() {
   // init collection for output metadata;
