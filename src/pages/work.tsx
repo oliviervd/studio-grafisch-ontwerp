@@ -40,23 +40,27 @@ const Work = (props) => {
                   content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`,
                 },
                 {
-                  name:"og:title",
+                  property:"og:title",
                   content: `${output.title}`
                 },
                 {
-                  name:"og:type",
+                  property:"og:type",
                   content: 'website'
                 },
                 {
-                  name:"og:image:secure",
+                  property:"og:image:secure",
                   content: `${output.mainMedia.url}`
                 },
                 {
-                  name:"og:description",
+                  property:"og:image",
+                  content: `${output.mainMedia.url}`
+                },
+                {
+                  property:"og:description",
                   content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`
                 },
                 {
-                  name:"twitter:title",
+                  property:"twitter:title",
                   content: `${output.title}`
                 }
               ]}
