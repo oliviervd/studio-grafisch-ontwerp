@@ -93,10 +93,6 @@ export function Home() {
               content: 'website'
             },
             {
-              property:"og:image:secure",
-              content: "https://d2yoaaok6mt608.cloudfront.net/Scherm%C3%82%C2%ADafbeelding%202024-01-30%20om%2016.41.32.png"
-            },
-            {
               property:"og:image",
               content: "https://d2yoaaok6mt608.cloudfront.net/Scherm%C3%82%C2%ADafbeelding%202024-01-30%20om%2016.41.32.png"
             },
