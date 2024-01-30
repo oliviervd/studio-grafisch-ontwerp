@@ -48,14 +48,17 @@ const Work = (props) => {
                   content: 'website'
                 },
                 {
+                  name:"image",
                   property:"og:image:secure",
                   content: `${output.mainMedia.url}`
                 },
                 {
+                  name:"image",
                   property:"og:image",
                   content: `${output.mainMedia.url}`
                 },
                 {
+                  name:"description",
                   property:"og:description",
                   content: `poster designed by ${designer} titled ${output.title} as part of Studio Grafisch Ontwerp at Design Museum Gent`
                 },
