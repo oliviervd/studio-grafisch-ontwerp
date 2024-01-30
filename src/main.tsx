@@ -13,16 +13,6 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 const Main = () => {
   return (
     <div>
-      <Helmet
-        title="Studio Grafisch Ontwerp - Design Museum Gent"
-        meta={[
-          {
-            name: "description",
-            content:
-              "Website hosting the outputs created by Studio Grafisch Ontwerp. A collaboration between Design Museum Gent en 019",
-          },
-        ]}
-      />
       <Router>
         <Route path="/" component={Home} />
         <Route path="/about/" component={Studio} />
