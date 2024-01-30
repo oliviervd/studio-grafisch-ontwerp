@@ -48,14 +48,6 @@ const Work = (props) => {
                   content: 'website'
                 },
                 {
-                  property:"og:image:secure",
-                  content: `${output.mainMedia.url}`
-                },
-                {
-                  property:"og:image:secure_url",
-                  content: `${output.mainMedia.url}`
-                },
-                {
                   property:"og:image",
                   content: `${output.mainMedia.url}`
                 },
