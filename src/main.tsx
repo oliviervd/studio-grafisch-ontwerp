@@ -8,7 +8,7 @@ import Helmet from "preact-helmet";
 import ReactGA from 'react-ga';
 // Initialize React Ga with your tracking ID
 ReactGA.initialize('G-CL57H808E1');
-
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const Main = () => {
   return (
