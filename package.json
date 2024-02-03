@@ -11,13 +11,16 @@
     "@vercel/analytics": "^1.1.1",
     "axios": "^1.6.2",
     "escape-html": "^1.0.3",
-    "preact": "^10.13.1",
+    "express": "^4.18.2",
+    "preact": "^10.19.3",
     "preact-helmet": "^4.0.0-alpha-3",
+    "preact-render-to-string": "^6.3.1",
     "preact-router": "^4.1.2",
     "react-ga": "^3.3.1",
     "react-masonry-component": "^6.3.0",
     "react-query": "^3.39.3",
-    "slate": "^0.100.0"
+    "slate": "^0.100.0",
+    "vite-plugin-ssr": "^0.4.142"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
