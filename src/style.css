@@ -78,6 +78,11 @@ a:active {
   grid-template-columns: 410px auto 1fr;
 }
 
+
+.output-description{
+  line-height: 1.1;
+}
+
 .output-grid img {
   margin-top: 16px;
   height: 70vh;
