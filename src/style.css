@@ -3,6 +3,11 @@
   src: url("assets/Arial-Rounded-Bold.ttf"), local("Arial Rounded Bold");
 }
 
+:root {
+  --textcolor: rgb(2, 145, 227);
+  --linkcolor: rgb(120, 118, 0);
+}
+
 body {
   max-width: 2500px;
   margin: 27px 27px;
@@ -12,7 +17,7 @@ body {
   line-height: 1.1;
   letter-spacing: -0.02em;
   background: white;
-  color: black;
+  color: rgb(0, 162, 255);
 }
 
 h3 {
@@ -21,9 +26,11 @@ h3 {
 }
 
 a {
-  text-decoration: underline;
-  color: rgb(42, 55, 162);
-  cursor: grab;
+  color: var(--linkcolor);
+  text-decoration: underline dotted var(--linkcolor);
+  -webkit-text-decoration-color: var(--linkcolor);
+  -webkit-text-decoration-style: dotted;
+  cursor: pointer;
 }
 
 a:hover {
@@ -161,7 +168,7 @@ a:active {
 }
 
 .non-click-link {
-  color: rgb(42, 55, 162);
+  color: var(--linkcolor);
 }
 
 .A0 {
